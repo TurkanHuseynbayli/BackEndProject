@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\code academiya\\BackEnd\\BackEnd\\BackEnd.csproj": {}
+    "C:\\Users\\admin\\Desktop\\code academiya\\BackEndProject\\BackEnd\\BackEnd\\BackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\code academiya\\BackEnd\\BackEnd\\BackEnd.csproj": {
+    "C:\\Users\\admin\\Desktop\\code academiya\\BackEndProject\\BackEnd\\BackEnd\\BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\code academiya\\BackEnd\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Desktop\\code academiya\\BackEndProject\\BackEnd\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "C:\\Users\\admin\\Desktop\\code academiya\\BackEnd\\BackEnd\\BackEnd.csproj",
+        "projectPath": "C:\\Users\\admin\\Desktop\\code academiya\\BackEndProject\\BackEnd\\BackEnd\\BackEnd.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\code academiya\\BackEnd\\BackEnd\\obj\\",
+        "outputPath": "C:\\Users\\admin\\Desktop\\code academiya\\BackEndProject\\BackEnd\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

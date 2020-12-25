@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using BackEnd.Models;
 using BackEnd.ViewModels;
 using BackEnd.DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEnd.Controllers
 {
@@ -28,6 +29,9 @@ namespace BackEnd.Controllers
                 Sliders = _context.Sliders.ToList(),
                 Services = _context.Services.ToList(),
                 Abouts = _context.Abouts.FirstOrDefault(),
+                Courses = _context.Courses.Where(c=>c.isDelete==false).ToList(),
+                CourseDetails = _context.CourseDetails.ToList(),
+                Videos = _context.Videos.FirstOrDefault(),
             };
             return View(homeVM);
 

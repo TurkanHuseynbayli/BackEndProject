@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "79LzMCqFgFGtLMuh18Rmhq3EOkGz9Qj+pEh5ZPBHVm25MugIZrQ9/Dd6YSNTc/5qVC1WoQlgQrmDRdP3ujMPNw==",
+  "dgSpecHash": "PgC3h54fRoCKYfXJY/e0SqLjxipyY7+IHr92SCpVAJY07sGVtToWgFYM5UFg44dGvn1FohNO0VWUgE7am5cnuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Desktop\\code academiya\\BackEnd\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\code academiya\\BackEndProject\\BackEnd\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
