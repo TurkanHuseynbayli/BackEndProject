@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace BackEnd.Models
     public class Board
     {
         public int Id { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM/yyyy}")]
+        [Required,DataType(DataType.DateTime)]
         public DateTime Time { get; set; }
         public string Description { get; set; }
     }

@@ -20,6 +20,9 @@ namespace BackEnd.DAL
         public DbSet<CourseDetail> CourseDetails { get; set; }
         public DbSet<Board> Boards { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventDetail> EventDetails { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,7 +31,11 @@ namespace BackEnd.DAL
                 .WithOne(c => c.Course)
                 .HasForeignKey<CourseDetail>(cD => cD.CourseId);
 
-          
+            modelBuilder.Entity<Event>()
+                 .HasOne(eD => eD.EventDetail)
+                 .WithOne(e => e.Event)
+                 .HasForeignKey<EventDetail>(eD => eD.EventId);
+
         }
 
     }

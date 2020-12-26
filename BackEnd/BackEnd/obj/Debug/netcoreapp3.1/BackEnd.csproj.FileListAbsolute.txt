@@ -313,3 +313,5 @@ C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\n
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Course\Default.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Notice\Default.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Event\Default.cshtml.g.cs

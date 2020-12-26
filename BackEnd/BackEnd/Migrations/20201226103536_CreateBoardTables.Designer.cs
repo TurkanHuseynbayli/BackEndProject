@@ -4,14 +4,16 @@ using BackEnd.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201226103536_CreateBoardTables")]
+    partial class CreateBoardTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -202,64 +204,6 @@ namespace BackEnd.Migrations
                     b.ToTable("CourseDetails");
                 });
 
-            modelBuilder.Entity("BackEnd.Models.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("EventDetailId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Place")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("isDelete")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("BackEnd.Models.EventDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Reply")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventId")
-                        .IsUnique();
-
-                    b.ToTable("EventDetails");
-                });
-
             modelBuilder.Entity("BackEnd.Models.Service", b =>
                 {
                     b.Property<int>("Id")
@@ -301,33 +245,6 @@ namespace BackEnd.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("BackEnd.Models.Speaker", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EventDetailId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Position")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventDetailId");
-
-                    b.ToTable("Speakers");
-                });
-
             modelBuilder.Entity("BackEnd.Models.Video", b =>
                 {
                     b.Property<int>("Id")
@@ -348,24 +265,6 @@ namespace BackEnd.Migrations
                     b.HasOne("BackEnd.Models.Course", "Course")
                         .WithOne("CourseDetail")
                         .HasForeignKey("BackEnd.Models.CourseDetail", "CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEnd.Models.EventDetail", b =>
-                {
-                    b.HasOne("BackEnd.Models.Event", "Event")
-                        .WithOne("EventDetail")
-                        .HasForeignKey("BackEnd.Models.EventDetail", "EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEnd.Models.Speaker", b =>
-                {
-                    b.HasOne("BackEnd.Models.EventDetail", "EventDetail")
-                        .WithMany("Speaker")
-                        .HasForeignKey("EventDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

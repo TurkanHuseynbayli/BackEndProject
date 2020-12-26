@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BackEnd.ViewComponents
 {
-    public class AboutViewComponent:ViewComponent
+    public class NoticeViewComponent : ViewComponent
     {
         private readonly AppDbContext _context;
-        public AboutViewComponent(AppDbContext context)
+        public NoticeViewComponent(AppDbContext context)
         {
             _context = context;
         }
@@ -19,7 +19,9 @@ namespace BackEnd.ViewComponents
         {
             HomeVM homeVM = new HomeVM
             {
-                Abouts = _context.Abouts.FirstOrDefault(),
+                Videos = _context.Videos.FirstOrDefault(),
+                Boards = _context.Boards.ToList(),
+                
             };
             return View(await Task.FromResult(homeVM));
         }

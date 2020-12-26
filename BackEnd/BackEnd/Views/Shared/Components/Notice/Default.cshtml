@@ -1,0 +1,32 @@
+﻿@model HomeVM
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="notice-right-wrapper mb-25 pb-25">
+                <h3>TAKE A VIDEO TOUR</h3>
+                <div class="notice-video">
+                    <div class="video-icon video-hover">
+                        <a class="video-popup" href="@Model.Videos.">
+                            <i class="zmdi zmdi-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="notice-left-wrapper">
+                <h3>notice board</h3>
+                <div class="notice-left">
+                    @foreach (Board board in Model.Boards)
+                    {
+                        <div class="single-notice-left mb-23 pb-20">
+                            <h4>@board.Time.Day,@board.Time.ToString("MMMM"),@board.Time.Year</h4>
+                            <p>@board.Description </p>
+                        </div>
+                    }
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
