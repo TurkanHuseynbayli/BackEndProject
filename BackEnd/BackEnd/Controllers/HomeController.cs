@@ -32,6 +32,9 @@ namespace BackEnd.Controllers
                 Courses = _context.Courses.Where(c=>c.isDelete==false).ToList(),
                 CourseDetails = _context.CourseDetails.ToList(),
                 Videos = _context.Videos.FirstOrDefault(),
+                Testimonials = _context.Testimonials.ToList(),
+                Blogs = _context.Blogs.ToList(),
+                BlogDetails = _context.BlogDetails.ToList(),
             };
             return View(homeVM);
 

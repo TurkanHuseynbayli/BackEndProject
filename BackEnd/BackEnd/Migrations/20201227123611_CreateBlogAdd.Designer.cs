@@ -4,14 +4,16 @@ using BackEnd.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201227123611_CreateBlogAdd")]
+    partial class CreateBlogAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -386,117 +388,6 @@ namespace BackEnd.Migrations
                     b.ToTable("Speakers");
                 });
 
-            modelBuilder.Entity("BackEnd.Models.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DeletedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Speciality")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TeacherDetail")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teacher");
-                });
-
-            modelBuilder.Entity("BackEnd.Models.TeacherDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("About")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Communication")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Degree")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Design")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Development")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Experience")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Facebook")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Faculty")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Hobbies")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Innovation")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Language")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pinterest")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Skype")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeamLeader")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Twitter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Vimeo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeacherId")
-                        .IsUnique();
-
-                    b.ToTable("TeacherDetail");
-                });
-
             modelBuilder.Entity("BackEnd.Models.Testimonial", b =>
                 {
                     b.Property<int>("Id")
@@ -565,15 +456,6 @@ namespace BackEnd.Migrations
                     b.HasOne("BackEnd.Models.EventDetail", "EventDetail")
                         .WithMany("Speaker")
                         .HasForeignKey("EventDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEnd.Models.TeacherDetail", b =>
-                {
-                    b.HasOne("BackEnd.Models.Teacher", "Teacher")
-                        .WithOne("Detail")
-                        .HasForeignKey("BackEnd.Models.TeacherDetail", "TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

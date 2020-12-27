@@ -15,6 +15,9 @@ namespace BackEnd.ViewModels
         public List<CourseDetail> CourseDetails { get; set; }
         public Video Videos { get; set; }
         public List<Board> Boards { get; set; }
+        public List<Testimonial> Testimonials { get; set; }
+        public List<Blog> Blogs { get; set; }
+        public List<BlogDetail> BlogDetails { get; set; }
 
     }
 }
