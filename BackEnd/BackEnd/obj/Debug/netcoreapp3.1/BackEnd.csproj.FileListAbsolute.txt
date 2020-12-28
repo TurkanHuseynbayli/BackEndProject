@@ -280,8 +280,6 @@ C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\bin\Debug\n
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csprojAssemblyReference.cache
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.AssemblyInfoInputs.cache
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.AssemblyInfo.cs
-C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.RazorAssemblyInfo.cache
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.RazorAssemblyInfo.cs
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.TagHelpers.input.cache
@@ -318,3 +316,15 @@ C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\n
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Testimonial\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Blog\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Teacher\Default.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Course\Detail.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\Detail.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Event\Detail.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Login\Signup.cshtml.g.cs

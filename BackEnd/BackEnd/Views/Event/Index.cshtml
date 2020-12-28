@@ -29,7 +29,29 @@
                     @await Component.InvokeAsync("Event", 6)
                 </div>
             </div>
-          
+            @*<div class="col-md-12">
+            <div class="pagination pages">
+                <ul class="pagination">
+                    @for (int i = 1; i <= ViewBag.PageCount; i++)
+                    {
+                        if (i == ViewBag.Page)
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">@i</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" asp-controller="Event" asp-action="Index" asp-route-page="@i">@i</a>
+                            </li>
+                        }
+
+                    }
+                </ul>
+            </div>
+        </div>*@
+
             <div class="col-md-4">
                 <div class="blog-sidebar right text-left">
                     <div class="single-blog-widget mb-50">
@@ -118,7 +140,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
 </div>
 <!-- Blog End -->

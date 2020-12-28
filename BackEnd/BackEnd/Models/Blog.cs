@@ -19,6 +19,7 @@ namespace BackEnd.Models
         public DateTime? DeletedTime { get; set; }
         public BlogDetail Detail { get; set; }
         public int DetailId { get; set; }
+        public ICollection<TagBlog> TagBlogs { get; set; }
 
 
     }

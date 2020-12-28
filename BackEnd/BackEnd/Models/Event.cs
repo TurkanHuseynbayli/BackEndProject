@@ -19,5 +19,6 @@ namespace BackEnd.Models
         public DateTime? DeletedTime { get; set; }
         public virtual EventDetail EventDetail { get; set; }
         public int EventDetailId { get; set; }
+        public ICollection<TagEvent> TagsEvents { get; set; }
     }
 }

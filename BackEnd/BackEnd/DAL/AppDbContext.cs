@@ -1,4 +1,6 @@
 ﻿using BackEnd.Models;
+using BackEnd.Models.Categories;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BackEnd.DAL
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -27,6 +29,13 @@ namespace BackEnd.DAL
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogDetail> BlogDetails { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<CategoryCourse> CategoryCourse { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<TagCourse> TagCourses { get; set; }
+        public DbSet<TagBlog> TagBlogs { get; set; }
+        public DbSet<TagEvent> TagEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -49,6 +58,8 @@ namespace BackEnd.DAL
               .HasOne(tD => tD.Detail)
               .WithOne(t => t.Teacher)
               .HasForeignKey<TeacherDetail>(tD => tD.TeacherId);
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }

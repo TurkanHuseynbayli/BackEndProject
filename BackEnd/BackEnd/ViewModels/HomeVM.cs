@@ -1,4 +1,5 @@
 ﻿using BackEnd.Models;
+using BackEnd.Models.Categories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace BackEnd.ViewModels
         public List<Testimonial> Testimonials { get; set; }
         public List<Blog> Blogs { get; set; }
         public List<BlogDetail> BlogDetails { get; set; }
+        public List<Category> Category { get; set; }
+        public List<CategoryCourse> CategoryCourse { get; set; }
 
     }
 }
