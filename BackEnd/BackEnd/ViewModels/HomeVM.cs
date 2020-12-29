@@ -18,6 +18,7 @@ namespace BackEnd.ViewModels
         public List<Board> Boards { get; set; }
         public List<Testimonial> Testimonials { get; set; }
         public List<Blog> Blogs { get; set; }
+    
         public List<BlogDetail> BlogDetails { get; set; }
         public List<Category> Category { get; set; }
         public List<CategoryCourse> CategoryCourse { get; set; }

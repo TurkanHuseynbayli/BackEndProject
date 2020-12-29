@@ -37,6 +37,7 @@ namespace BackEnd.Controllers
                 BlogDetails = _context.BlogDetails.ToList(),
                 Category = _context.Category.ToList(),
                 CategoryCourse = _context.CategoryCourse.ToList(),
+              
             };
             return View(homeVM);
 

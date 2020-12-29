@@ -12,7 +12,7 @@
     }
     <div class="single-event mb-35">
         <div class="event-img">
-            <a href="event-details.html"><img src="~/img/event/@events.Image" alt="event"></a>
+            <a asp-action="Detail" asp-route-id="@events.Id"><img src="~/img/event/@events.Image" alt="event"></a>
         </div>
         <div class="event-content text-left">
             <h3>@events.Date.Day,@events.Date.ToString("MMMM"),@events.Date.Year</h3>
@@ -22,7 +22,7 @@
                 <li><i class="fa fa-map-marker"></i>New Yourk City</li>
             </ul>
             <div class="event-content-right">
-                <a class="default-btn" href="event-details.html">join now</a>
+                <a class="default-btn"asp-action="Detail" asp-route-id="@events.Id">join now</a>
             </div>
         </div>
     </div>
