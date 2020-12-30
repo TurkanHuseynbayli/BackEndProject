@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.DAL;
+using BackEnd.Extensions;
 using BackEnd.Models;
 using BackEnd.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -15,12 +16,14 @@ namespace BackEnd.Controllers
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public LoginController(AppDbContext context, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public LoginController(AppDbContext context, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
         public IActionResult Login()
         {
@@ -83,9 +86,12 @@ namespace BackEnd.Controllers
             {
                 return View();
             }
-
+            await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
             await _signInManager.SignInAsync(newUser, true);
+          
+          
             return RedirectToAction("Index", "Home");
+
         }
 
         public async Task<IActionResult> Logout()
@@ -93,6 +99,14 @@ namespace BackEnd.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
+        #region Create User Roles
+        //public async Task CreateUserRole()
+        //{
+        //    if (!(await _roleManager.RoleExistsAsync(Roles.Admin.ToString())))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
+        //    if (!(await _roleManager.RoleExistsAsync(Roles.Member.ToString())))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
+        //}
+        #endregion
     }
 }

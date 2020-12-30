@@ -7,6 +7,7 @@ using BackEnd.DAL;
 using BackEnd.Extensions;
 using BackEnd.Helpers;
 using BackEnd.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BackEnd.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize(Roles = "Admin")]
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;
@@ -148,14 +150,13 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 return View(sliderD);
             }
             string folder = Path.Combine("img", "slider");
-            //Helper.DeleteImage(_env.WebRootPath, folder, slider.Image);
-            //_context.Sliders.Remove(slider);
+            
             string fileName = await slider.Photo.SaveImageAsync(_env.WebRootPath, folder);
             if (fileName == null)
             {
                 return Content("Error");
             }
-            slide.Image = fileName;
+            slider.Image = fileName;
             //await _context.Sliders.AddAsync(slide);
             //string fileName = await slider.Photos.SaveImageAsync(_env.WebRootPath, folder);
             //foreach (IFormFile item in slider.Photos)

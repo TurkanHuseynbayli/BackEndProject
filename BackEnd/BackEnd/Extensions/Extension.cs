@@ -29,4 +29,9 @@ namespace BackEnd.Extensions
             return fileName;
         }
     }
+    public enum Roles
+    {
+        Admin,
+        Member
+    }
 }

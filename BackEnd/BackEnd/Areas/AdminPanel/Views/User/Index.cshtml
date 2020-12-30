@@ -1,0 +1,105 @@
+﻿@model List<UserVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Categories</h4>
+            <a asp-controller="Category" asp-action="Create" class="btn btn-success">
+                Create
+            </a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Fullname
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Username
+                            </th>
+                            <th>
+                                Role
+                            </th>
+                            <th>
+                                IsDeleted
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (UserVM user in Model)
+                        {
+                            <tr>
+                                <td>@user.Name @user.Surname</td>
+                                <td>@user.Username</td>
+                                <td>@user.Role</td>
+                                @if (user.IsDelete)
+                                {
+                                    <td style="color:red">
+                                        Deactivate
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="color:green">
+                                        Active
+                                    </td>
+                                }
+                                <td>
+                                    @if (user.Username != User.Identity.Name)
+                                    {
+                                        @if (!user.IsDelete)
+                                        {
+                                            <a asp-controller="User" asp-action="Activation" asp-route-id="@user.Id" class="btn btn-outline-danger mb-2">
+                                                Deactivate
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="User" asp-action="Activation" asp-route-id="@user.Id" class="btn btn-outline-success mb-2">
+                                                Activate
+                                            </a>
+                                        }
+                                    }
+
+
+
+                                    @if (user.Username == User.Identity.Name)
+                                    {
+                                        <br />
+                                        <a asp-controller="User" asp-action="ChangePassword" asp-route-id="@user.Id" class="btn btn-outline-warning mb-2">
+                                            Change Pass
+                                        </a>
+                                    }
+                                    <a asp-controller="User" asp-action="UpdateUser" asp-route-id="@user.Id" class="btn btn-outline-pinterest mb-2">
+                                        Update
+                                    </a>
+                                    @if (user.Username != User.Identity.Name)
+                                    {
+                                        <a asp-controller="User" asp-action="ChangeRole" asp-route-id="@user.Id" class="btn btn-outline-info mb-2">
+                                            Change Role
+                                        </a>
+                                        <a asp-controller="User" asp-action="Detail" asp-route-id="@user.Id" class="btn btn-outline-warning mb-2">
+                                            Detail
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
