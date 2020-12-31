@@ -1,0 +1,18 @@
+﻿@model List<Blog>
+@foreach (Blog blog in Model)
+{
+    <div class="single-post mb-30">
+        <div class="single-post-img">
+            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">
+                <img style="width: 120px !important" src="~/img/blog/@blog.Image" alt="post">
+                <div class="blog-hover">
+                    <i class="fa fa-link"></i>
+                </div>
+            </a>
+        </div>
+        <div class="single-post-content">
+            <h6><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.Title</a></h6>
+            <p>By Author  /  @blog.DateTime.ToString("MMMM dd, yyyy")</p>
+        </div>
+    </div>
+}

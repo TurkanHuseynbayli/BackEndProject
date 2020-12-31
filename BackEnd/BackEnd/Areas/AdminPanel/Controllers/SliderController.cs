@@ -104,6 +104,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 //newSlider.Image = await photo.SaveImageAsync(_env.WebRootPath, "img",);
                 //await _context.Sliders.AddAsync(newSlider);
             }
+            
             await _context.SaveChangesAsync();
 
 

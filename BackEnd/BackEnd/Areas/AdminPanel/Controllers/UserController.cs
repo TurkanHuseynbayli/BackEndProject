@@ -35,7 +35,6 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                     IsDelete = user.isDelete,
                     Role = (await _userManager.GetRolesAsync(user))[0],
                 };
-
                 usersVM.Add(userVM);
             }
             return View(usersVM);

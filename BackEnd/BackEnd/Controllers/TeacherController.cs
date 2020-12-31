@@ -25,10 +25,14 @@ namespace BackEnd.Controllers
            
             return View();
         }
-        public IActionResult Detail()
+        public IActionResult Detail(int? id)
         {
-           
-            return View();
+            if (id == null) return NotFound();
+
+            Teacher teachers = _context.Teacher.Where(tc => tc.IsDelete == false)
+                .Include(teach => teach.TeacherDetail).FirstOrDefault(teach => teach.Id == id);
+
+            return View(teachers);
         }
 
     }

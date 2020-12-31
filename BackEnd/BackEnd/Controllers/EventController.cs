@@ -27,14 +27,15 @@ namespace BackEnd.Controllers
 
         public IActionResult Detail(int? id)
         {
-            //if (id == null) return NotFound();
-            //Event events = _context.Events.Where(c => c.isDelete == false)
-            //    .Include(e => e.EventDetail).FirstOrDefault(e => e.Id == id);
-            //if (events == null) NotFound();
-            //return View(events);
+            if (id == null) return NotFound();
+            Event events = _context.Events.Where(c => c.isDelete == false)
+                .Include(e => e.EventDetail).Include(e => e.EventDetail.Speaker)
+                .FirstOrDefault(e => e.Id == id);
+            if (events == null) NotFound();
+            return View(events);
             //if (id == null) return NotFound();
             //return View(_context.Events.Include(e => e.EventDetail).FirstOrDefault(e => e.Id == id));
-            return View();
+
         }
 
     }
