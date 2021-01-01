@@ -86,7 +86,7 @@ namespace BackEnd.Controllers
             {
                 return View();
             }
-            await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
+            await _userManager.AddToRoleAsync(newUser, Roles.Admin.ToString());
             await _signInManager.SignInAsync(newUser, true);
           
           

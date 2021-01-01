@@ -18,7 +18,7 @@ namespace BackEnd.Controllers
             _context = context;
         }
 
-        public List<Teacher> Teachers { get; private set; }
+      
 
         public IActionResult Index()
         {
@@ -27,11 +27,12 @@ namespace BackEnd.Controllers
         }
         public IActionResult Detail(int? id)
         {
+
             if (id == null) return NotFound();
 
-            Teacher teachers = _context.Teacher.Where(tc => tc.IsDelete == false)
-                .Include(teach => teach.TeacherDetail).FirstOrDefault(teach => teach.Id == id);
-
+            Teacher teachers = _context.Teacher.Where(tc => tc.IsDelete == false).Include(t => t.TeacherDetail)
+            .FirstOrDefault(t => t.Id == id);
+            if (teachers == null) NotFound();
             return View(teachers);
         }
 

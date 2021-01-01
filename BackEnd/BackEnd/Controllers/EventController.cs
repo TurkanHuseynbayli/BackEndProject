@@ -33,8 +33,7 @@ namespace BackEnd.Controllers
                 .FirstOrDefault(e => e.Id == id);
             if (events == null) NotFound();
             return View(events);
-            //if (id == null) return NotFound();
-            //return View(_context.Events.Include(e => e.EventDetail).FirstOrDefault(e => e.Id == id));
+         
 
         }
 
