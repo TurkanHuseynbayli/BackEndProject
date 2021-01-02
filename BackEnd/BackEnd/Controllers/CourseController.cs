@@ -24,16 +24,22 @@ namespace BackEnd.Controllers
             //ViewBag.Page = page;
             return View();
         }
-        public IActionResult Detail()
+        public IActionResult Detail(int? id)
         {
-            //    if (id == null) return NotFound();
+            if (id == null) return NotFound();
 
-            //    Course course = _context.Courses.Where(c => c.isDelete == false).Include(c => c.CourseDetail)
-            //        .Include(c => c.CategoryCourses).ThenInclude(c => c.Category)
-            //        .FirstOrDefault(c => c.Id == id);
+            Course course = _context.Courses.Where(c => c.isDelete == false).Include(c => c.CourseDetail)
+                .Include(c => c.CategoryCourses).ThenInclude(c => c.Category)
+                .FirstOrDefault(c => c.Id == id);
 
-            //    if (course == null) NotFound();
-            return View();
+            if (course == null) NotFound();
+            return View(course);
+        }
+        public IActionResult Search(string search)
+        {
+
+              List<Course> course = _context.Courses.Where(c => c.isDelete == false ).Where(c=>c.Name.Contains(search)).ToList();
+            return View(course);
         }
     }
 }

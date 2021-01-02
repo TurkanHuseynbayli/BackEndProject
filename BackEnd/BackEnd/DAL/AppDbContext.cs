@@ -36,6 +36,7 @@ namespace BackEnd.DAL
         public DbSet<TagCourse> TagCourses { get; set; }
         public DbSet<TagBlog> TagBlogs { get; set; }
         public DbSet<TagEvent> TagEvents { get; set; }
+        public DbSet<TeacherDetail> TeacherDetail { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,10 +55,10 @@ namespace BackEnd.DAL
                .WithOne(b => b.Blog)
                .HasForeignKey<BlogDetail>(bD => bD.BlogId);
 
-            modelBuilder.Entity<Teacher>()
-              .HasOne(tD => tD.Detail)
-              .WithOne(t => t.Teacher)
-              .HasForeignKey<TeacherDetail>(tD => tD.TeacherId);
+            //modelBuilder.Entity<Teacher>()
+            //  .HasOne(tD => tD.Detail)
+            //  .WithOne(t => t.Teacher)
+            //  .HasForeignKey<TeacherDetail>(tD => tD.TeacherId);
 
             base.OnModelCreating(modelBuilder);
         }

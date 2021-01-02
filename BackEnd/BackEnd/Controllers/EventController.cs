@@ -37,5 +37,12 @@ namespace BackEnd.Controllers
 
         }
 
+        public IActionResult Search(string search)
+        {
+
+            List<Event> events = _context.Events.Where(c => c.isDelete == false).Where(c => c.Title.Contains(search)).ToList();
+            return View(events);
+        }
+
     }
 }

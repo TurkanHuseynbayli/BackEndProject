@@ -15,7 +15,7 @@ namespace BackEnd.Models
         public string Speciality { get; set; }
         public bool IsDelete { get; set; }
         public DateTime? DeletedTime { get; set; }
-        public TeacherDetail Detail { get; set; }
-        public int TeacherDetail { get; set; }
+        public TeacherDetail TeacherDetail { get; set; }
+        //public int TeacherDetail { get; set; }
     }
 }

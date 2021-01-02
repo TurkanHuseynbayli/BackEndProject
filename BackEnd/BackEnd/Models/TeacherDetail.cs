@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,8 +35,10 @@ namespace BackEnd.Models
         public int Innovation { get; set; }
         public int Development { get; set; }
         public int Communication { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        [ForeignKey("Teacher")]
         public int TeacherId { get; set; }
+        public  Teacher Teacher { get; set; }
+        
 
     }
 }

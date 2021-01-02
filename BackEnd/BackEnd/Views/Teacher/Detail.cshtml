@@ -1,4 +1,4 @@
-﻿@model Teacher
+﻿@model TeacherDetail
 @{
     ViewData["Title"] = "Detail";
 }
@@ -26,20 +26,20 @@
         <div class="row">
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <div class="teacher-details-img">
-                    <img  width="700" src="~/img/teacher/@Model.Image" alt="teacher">
+                    <img  width="700" src="~/img/teacher/@Model.Teacher.Image" alt="teacher">
                 </div>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="teacher-details-content ml-50">
-                    <h2>@Model.Name</h2>
-                    <h5>@Model.Speciality</h5>
+                    <h2>@Model.Teacher.Name</h2>
+                    <h5>@Model.Teacher.Speciality</h5>
                     <h4>About</h4>
-                    <p>About</p>
+                    <p>@Model.About</p>
                     <ul>
-                        <li><span>degree: </span>PHD in Micro Biology</li>
-                        <li><span>experience: </span>7 years experience</li>
-                        <li><span>hobbies: </span>music, travelling, catching fish</li>
-                        <li><span>faculty: </span>Din, Department of Micro Biology</li>
+                        <li><span>degree: </span>@Model.Degree</li>
+                        <li><span>experience: </span>@Model.Experience</li>
+                        <li><span>hobbies: </span>@Model.Hobbies</li>
+                        <li><span>faculty: </span>@Model.Faculty</li>
                     </ul>
                 </div>
             </div>
@@ -48,9 +48,9 @@
             <div class="col-md-3 col-sm-4">
                 <div class="teacher-contact">
                     <h4>contact information</h4>
-                    <p><span>mail me : </span>stuart@eduhome.com</p>
-                    <p><span>make a call : </span>(+125) 5896 548 9874</p>
-                    <p><span>skype : </span> stuart.k</p>
+                    <p><span>mail me : </span>@Model.Email</p>
+                    <p><span>make a call : </span>@Model.Phone</p>
+                    <p><span>skype : </span>@Model.Skype</p>
                     <ul>
                         <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
                         <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>
@@ -70,7 +70,7 @@
                                 <span>language</span>
                                 <div class="progress">
                                     <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">85%</span>
+                                        <span class="text-top">@Model.Language%</span>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                 <span>team leader</span>
                                 <div class="progress">
                                     <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 90%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">90%</span>
+                                        <span class="text-top">@Model.TeamLeader%</span>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                 <span>development</span>
                                 <div class="progress">
                                     <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">85%</span>
+                                        <span class="text-top">@Model.Development%</span>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                                 <span>design</span>
                                 <div class="progress">
                                     <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 95%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">95%</span>
+                                        <span class="text-top">@Model.Design%</span>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                 <span>innovation</span>
                                 <div class="progress">
                                     <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">85%</span>
+                                        <span class="text-top">@Model.Innovation%</span>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 <span>communication</span>
                                 <div class="progress">
                                     <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 95%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">95%</span>
+                                        <span class="text-top">@Model.Innovation%</span>
                                     </div>
                                 </div>
                             </div>
