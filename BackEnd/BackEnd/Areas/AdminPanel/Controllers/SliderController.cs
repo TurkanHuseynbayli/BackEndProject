@@ -30,6 +30,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             ViewBag.SlideCount = _context.Sliders.Count();
             return View(_context.Sliders.ToList());
         }
+        #region Slider Create
         public IActionResult Create()
         {
             int count = _context.Sliders.Count();
@@ -86,12 +87,12 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
                 if (!photo.IsImage())
                 {
-                    ModelState.AddModelError("Photos", $"{photo.FileName}-not image type");
+                    ModelState.AddModelError("Photo", $"{photo.FileName}-not image type");
                     return View();
                 }
-                if (!photo.MaxSize(500))
+                if (!photo.MaxSize(200))
                 {
-                    ModelState.AddModelError("Photos", $"{photo.FileName}-max length 200kb");
+                    ModelState.AddModelError("Photo", $"{photo.FileName}-max length 200kb");
                     return View();
                 }
                 Slider newSlider = new Slider();
@@ -111,6 +112,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        #endregion Slider Create
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return NotFound();
@@ -120,6 +122,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             return View(slider);
 
         }
+        #region Slider Update
         public async Task<IActionResult> Update(int? id)
         {
            
@@ -142,12 +145,12 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             }
             if (!slider.Photo.IsImage())
             {
-                ModelState.AddModelError("Photo", "Artiq bu adda  movcuddur");
+                ModelState.AddModelError("Photos", "Artiq bu adda  movcuddur");
                 return View(sliderD);
             }
             if (!slider.Photo.MaxSize(200))
             {
-                ModelState.AddModelError("Photo", "Artiq bu size  movcud deyil");
+                ModelState.AddModelError("Photos", "Artiq bu size  movcud deyil");
                 return View(sliderD);
             }
             string folder = Path.Combine("img", "slider");
@@ -189,7 +192,9 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
 
         }
+        #endregion Slider Update
 
+        #region Slider Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -228,5 +233,6 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        #endregion Slider Delete
     }
 }

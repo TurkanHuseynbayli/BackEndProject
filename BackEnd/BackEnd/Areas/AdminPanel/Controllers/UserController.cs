@@ -45,6 +45,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             }
             return View(usersVM);
         }
+        #region User ChangeStatus
         public async Task<IActionResult> ChangeStatus(string id)
         {
             if (id == null) return NotFound();
@@ -73,7 +74,9 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             await _userManager.UpdateAsync(user);
             return RedirectToAction(nameof(Index));
         }
+        #endregion  User ChangeStatus
 
+        #region User ResetPassword
         public IActionResult ResetPassword(string id)
         {
             return View();
@@ -82,7 +85,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPassword(string id, ResetPasswordVM reg)
         {
-            if (!ModelState.IsValid) return Content("Some Problem");
+            if (!ModelState.IsValid) return Content("Some Problem exists");
+           
             AppUser user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
@@ -93,6 +97,9 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             await _userManager.ResetPasswordAsync(user, passwordToken, reg.Password);
             return RedirectToAction("Index");
         }
+        #endregion  User ResetPassword
+
+        #region User ChangeRole
         public async Task<IActionResult> ChangeRole(string id)
         {
             if (id == null) return NotFound();
@@ -136,6 +143,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             await _userManager.UpdateAsync(user);
             return RedirectToAction(nameof(Index));
         }
+
+        #endregion User ChangeRole
         public async Task<IActionResult> Detail(string id)
         {
             AppUser user = await _userManager.FindByIdAsync(id);
@@ -146,7 +155,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
 
 
-
+        #region User UpdateUser
         public IActionResult UpdateUser(string id)
         {
             if (id == null) return NotFound();
@@ -181,6 +190,10 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        #endregion User UpdateUser
+
+        #region getUserVM
         private async Task<UserVM> getUserVM(AppUser user)
         {
             List<string> roles = new List<string>();
@@ -200,5 +213,6 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             };
             return userVM;
         }
+        #endregion getUserVM
     }
 }
