@@ -59,7 +59,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
             //string path = Path.Combine("img", "testimonial");
 
-            //string fileName = await testimonial.Photo.SaveImg(_env.WebRootPath, path);
+            //string fileName = await testimonial.Photo.SaveImageAsync(_env.WebRootPath, path);
             Testimonial newTestimonal = new Testimonial();
 
             newTestimonal.Name = testimonial.Name;
