@@ -28,13 +28,20 @@ using BackEnd.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\Views\_ViewImports.cshtml"
+using BackEnd.Models.Categories;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\Views\_ViewImports.cshtml"
 using BackEnd.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c592f56078b22d3168dcf02c207f83b6f75e3a10", @"/Views/Shared/Components/Event/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"abcf76cd9b9e6c77262f5d76cf0f72ac7e78a6a0", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e91b8d91c086b60546e5c8046138d7a7c398ab06", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Event_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Event>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("event"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -102,8 +109,8 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"single-event mb-35\">\r\n        <div class=\"event-img\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c592f56078b22d3168dcf02c207f83b6f75e3a106088", async() => {
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c592f56078b22d3168dcf02c207f83b6f75e3a106304", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c592f56078b22d3168dcf02c207f83b6f75e3a106297", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c592f56078b22d3168dcf02c207f83b6f75e3a106513", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -181,7 +188,7 @@ AddHtmlAttributeValue("", 435, events.Image, 435, 13, false);
 #line hidden
 #nullable disable
             WriteLiteral("</h3>\r\n            <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c592f56078b22d3168dcf02c207f83b6f75e3a1011063", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c592f56078b22d3168dcf02c207f83b6f75e3a1011272", async() => {
 #nullable restore
 #line 19 "C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\Views\Shared\Components\Event\Default.cshtml"
                                                                                    Write(events.Title);
@@ -220,7 +227,7 @@ AddHtmlAttributeValue("", 435, events.Image, 435, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</h4>\r\n            <ul>\r\n                <li><i class=\"fa fa-clock-o\"></i>9.00 AM - 4.45 PM</li>\r\n                <li><i class=\"fa fa-map-marker\"></i>New Yourk City</li>\r\n            </ul>\r\n            <div class=\"event-content-right\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c592f56078b22d3168dcf02c207f83b6f75e3a1014006", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c592f56078b22d3168dcf02c207f83b6f75e3a1014215", async() => {
                 WriteLiteral("join now");
             }
             );

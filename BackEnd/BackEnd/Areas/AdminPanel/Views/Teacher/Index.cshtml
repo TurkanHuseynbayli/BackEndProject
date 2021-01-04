@@ -1,0 +1,56 @@
+﻿@model List<Teacher>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title ">Teachers</h2>
+            <a asp-action="Create" class="btn btn-success mb-5">Create</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-light">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Speciality
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Teacher teacher in Model)
+                        {
+                            <tr>
+                                <td><img style="width: 150px; height: 150px; border-radius: 8px!important" src="~/img/teacher/@teacher.Image" /></td>
+                                <td>@teacher.Name</td>
+                                <td>@Html.Raw(teacher.Speciality)</td>
+                                <td>
+                                    <a asp-controller="Teacher" asp-action="Detail" asp-route-id="@teacher.Id" class="btn btn-outline-dark">
+                                        <i class="mdi mdi-information"></i>
+                                    </a>
+                                    <a asp-controller="Teacher" asp-action="Update" asp-route-id="@teacher.Id" class="btn btn-outline-warning">
+                                        <i class="mdi mdi-table-edit"></i>
+                                    </a>
+                                    <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@teacher.Id" class="btn btn-outline-danger">
+                                        <i class="mdi mdi-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

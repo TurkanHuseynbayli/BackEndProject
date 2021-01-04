@@ -1,0 +1,26 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card" style="width: 18rem;">
+                <img height="230" class="card-img-top" src="~/img/teacher/@Model.Image" >
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name</h5>
+                    <div class="text-muted mb-4" style="max-height:100px; overflow:hidden">
+                        @Html.Raw(Model.TeacherDetail.About)
+                    </div>
+                    <form method="post">
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        <a asp-action="Index" class="btn btn-outline-warning">GO BACK</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

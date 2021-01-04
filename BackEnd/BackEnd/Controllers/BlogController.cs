@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.DAL;
 using BackEnd.Models;
+using BackEnd.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,12 +34,20 @@ namespace BackEnd.Controllers
         public IActionResult Detail(int? id)
         {
             if (id == null) return NotFound();
-         
+            HomeVM homeVM = new HomeVM()
+            {
+               
+                Category = _context.Category.ToList(),
+                Blogs = _context.Blogs.Where(blg => blg.isDelete == false).Include(blg => blg.Detail).Include(blg => blg.TagBlogs)
+                  .ThenInclude(blg => blg.Tag).FirstOrDefault(blg => blg.Id == id)
 
-            Blog blogs = _context.Blogs.Where(blg => blg.isDelete == false).Include(blg => blg.Detail).Include(blg => blg.TagBlogs)
-                .ThenInclude(blg => blg.Tag).FirstOrDefault(blg => blg.Id == id);
+            };
+            return View(homeVM);
 
-            return View(blogs);
+            //Blog blogs = _context.Blogs.Where(blg => blg.isDelete == false).Include(blg => blg.Detail).Include(blg => blg.TagBlogs)
+            //    .ThenInclude(blg => blg.Tag).FirstOrDefault(blg => blg.Id == id);
+
+            //return View(blogs);
         }
         public IActionResult Search(string search)
         {

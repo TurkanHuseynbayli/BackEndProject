@@ -1,0 +1,163 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container bg-white p-5">
+    <div class="row">
+        <div class="col-md-12 ">
+            <form method="post" enctype="multipart/form-data">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label asp-for="@Model.Name">Fullname</label>
+                        <input required asp-for="@Model.Name" class="form-control" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="@Model.Speciality">Speciality</label>
+                        <input required asp-for="@Model.Speciality" class="form-control" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Speciality"></span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="form-group">
+                        <label asp-for="@Model.Photo"></label>
+                        <input asp-for="@Model.Photo" accept="image/*" class="form-control">
+                        <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+                    </div>
+                </div>
+
+                <h4 class="text-center text-danger">About</h4>
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <label asp-for="@Model.TeacherDetail.About">About me</label>
+                        <textarea asp-for="@Model.TeacherDetail.About"> </textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Degree">Degree</label>
+                        <input required asp-for="@Model.TeacherDetail.Degree" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Experience">Experience</label>
+                        <input required asp-for="@Model.TeacherDetail.Experience" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Hobbies">Hobbies</label>
+                        <input required asp-for="@Model.TeacherDetail.Hobbies" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Faculty">Faculty</label>
+                        <input required asp-for="@Model.TeacherDetail.Faculty" class="form-control">
+                    </div>
+                </div>
+
+                <h4 class="text-center text-danger my-3">Contact </h4>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="@Model.TeacherDetail.Email">Email</label>
+                        <input required asp-for="@Model.TeacherDetail.Email" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="@Model.TeacherDetail.Phone">Phone</label>
+                        <input required asp-for="@Model.TeacherDetail.Phone" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="@Model.TeacherDetail.Skype">Skype</label>
+                        <input required asp-for="@Model.TeacherDetail.Skype" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <h5></h5>
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Facebook">Facebook</label>
+                        <input required asp-for="@Model.TeacherDetail.Facebook" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Pinterest">Pinteres</label>
+                        <input required asp-for="@Model.TeacherDetail.Pinterest" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Vimeo">Vimeo</label>
+                        <input required asp-for="@Model.TeacherDetail.Vimeo" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="@Model.TeacherDetail.Twitter">Twitter</label>
+                        <input required asp-for="@Model.TeacherDetail.Twitter" class="form-control">
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3>Skills <strong>for % (percent)</strong></h3>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label asp-for="@Model.TeacherDetail.Language">Language - %</label>
+                            <input min="0" max="100" required asp-for="@Model.TeacherDetail.Language" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.TeacherDetail.Language"></span>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label asp-for="@Model.TeacherDetail.Design">Design - %</label>
+                            <input min="0" max="100" required asp-for="@Model.TeacherDetail.Design" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.TeacherDetail.Design"></span>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label asp-for="@Model.TeacherDetail.TeamLeader">Team Leader - %</label>
+                            <input min="0" max="100" required asp-for="@Model.TeacherDetail.TeamLeader" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.TeacherDetail.TeamLeader"></span>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label asp-for="@Model.TeacherDetail.Innovation">Innovation - %</label>
+                            <input min="0" max="100" required asp-for="@Model.TeacherDetail.Innovation" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.TeacherDetail.Innovation"></span>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label asp-for="@Model.TeacherDetail.Development">Development - %</label>
+                            <input min="0" max="100" required asp-for="@Model.TeacherDetail.Development" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.TeacherDetail.Development"></span>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label asp-for="@Model.TeacherDetail.Communication">Communication - %</label>
+                            <input min="0" max="100" required asp-for="@Model.TeacherDetail.Communication" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.TeacherDetail.Communication"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Create</button>
+                    <a asp-action="Index" class="btn btn-info">GO BACK</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#TeacherDetail_About'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+

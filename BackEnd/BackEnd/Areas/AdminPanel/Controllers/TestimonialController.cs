@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.DAL;
+using BackEnd.Extensions;
 using BackEnd.Helpers;
 using BackEnd.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -23,96 +24,51 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             _context = context;
             _env = env;
         }
-        
-            public IActionResult Index()
-            {
-                return View(_context.Testimonials.ToList());
-            }
-        public IActionResult Create()
+
+        public IActionResult Index()
         {
-            return View();
+            Testimonial testimonials = _context.Testimonials.FirstOrDefault();
+            return View(testimonials);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Testimonial testimonial)
-        {
-
-            if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-            {
-                return View();
-            }
-
-            //if (!testimonial.Photo.IsImage())
-            //{
-            //    ModelState.AddModelError("Photo", "Zehmet olmasa shekil formati sechin");
-            //    return View();
-            //}
-
-            //if (testimonial.Photo.MaxLength(2000))
-            //{
-            //    ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
-            //    return View();
-            //}
-
-           
-
-            //string path = Path.Combine("img", "testimonial");
-
-            //string fileName = await testimonial.Photo.SaveImageAsync(_env.WebRootPath, path);
-            Testimonial newTestimonal = new Testimonial();
-
-            newTestimonal.Name = testimonial.Name;
-            newTestimonal.Description = testimonial.Description;
-            //newTestimonal.Image = fileName;
-
-
-            await _context.Testimonials.AddAsync(newTestimonal);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-
-        }
         public IActionResult Update(int? id)
         {
-            if (id == null) return NotFound();
-            Testimonial testimonial = _context.Testimonials.FirstOrDefault(p => p.Id == id);
-            if (testimonial == null) return NotFound();
-            return View(testimonial);
-
+            Testimonial testimonials = _context.Testimonials.FirstOrDefault(a => a.Id == id);
+            return View(testimonials);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, Testimonial testimonial)
         {
-            if (!ModelState.IsValid) return View();
-            if (id == null) return NotFound();
-            Testimonial dbtestimonial = await _context.Testimonials.FindAsync(id);
-            if (dbtestimonial == null) return NotFound();
+            Testimonial testimonialOld = _context.Testimonials.FirstOrDefault(a => a.Id == id);
+            if (id == null) return RedirectToAction("ErrorPage", "Home");
+            if (testimonial == null) return RedirectToAction("ErrorPage", "Home");
+
             if (testimonial.Photo != null)
             {
-                if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+                if (!testimonial.Photo.IsImage())
                 {
-                    return View();
+                    ModelState.AddModelError("Photos", $"{testimonial.Photo.FileName} - not image type");
+                    return View(testimonialOld);
                 }
 
+                string folder = Path.Combine("img", "testimonial");
+                string fileName = await testimonial.Photo.SaveImageAsync(_env.WebRootPath, folder);
+                if (fileName == null)
+                {
+                    return Content("Error");
+                }
 
-
-
-                string path = Path.Combine("img", "testimonial");
-                Helper.DeleteImage(_env.WebRootPath, path, dbtestimonial.Image);
-
-               
-
+                Helper.DeleteImage(_env.WebRootPath, folder, testimonialOld.Image);
+                testimonialOld.Image = fileName;
             }
-            dbtestimonial.Name = testimonial.Name;
-            dbtestimonial.Description = testimonial.Description;
-          
 
-
-
+            testimonialOld.Name = testimonial.Name;
+            testimonialOld.Description = testimonial.Description;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
     }
 }
+
+ 

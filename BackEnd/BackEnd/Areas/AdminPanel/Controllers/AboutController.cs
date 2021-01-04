@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.DAL;
+using BackEnd.Extensions;
 using BackEnd.Helpers;
 using BackEnd.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -28,41 +29,42 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             About about = _context.Abouts.FirstOrDefault();
             return View(about);
         }
-        public async Task<IActionResult> Update(int? id)
+        public IActionResult Update(int? id)
         {
-            if (id == null) return NotFound();
-            About about = await _context.Abouts.FindAsync(id);
-            if (about == null) return NotFound();
+            About about = _context.Abouts.FirstOrDefault(a => a.Id == id);
             return View(about);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, About about)
         {
-            if (id == null) return NotFound();
-            About dbabout = await _context.Abouts.FindAsync(id);
-            if (dbabout == null) return NotFound();
+            About aboutOld = _context.Abouts.FirstOrDefault(a => a.Id == id);
+            if (id == null) return RedirectToAction("ErrorPage", "Home");
+            if (about == null) return RedirectToAction("ErrorPage", "Home");
+
             if (about.Photo != null)
             {
-                if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+                if (!about.Photo.IsImage())
                 {
-                    return View();
+                    ModelState.AddModelError("Photos", $"{about.Photo.FileName} - not image type");
+                    return View(aboutOld);
                 }
 
+                string folder = Path.Combine("img", "about");
+                string fileName = await about.Photo.SaveImageAsync(_env.WebRootPath, folder);
+                if (fileName == null)
+                {
+                    return Content("Error");
+                }
 
-                string path = Path.Combine("img", "about");
-                Helper.DeleteImage(_env.WebRootPath, path, dbabout.Image);
-              
-
+                Helper.DeleteImage(_env.WebRootPath, folder, aboutOld.Image);
+                aboutOld.Image = fileName;
             }
-            //dbabout.Image = about.Image;
-            dbabout.Description = about.Description;
-            dbabout.Title = about.Title;
 
+            aboutOld.Title = about.Title;
+            aboutOld.Description = about.Description;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
     }
 }
