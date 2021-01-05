@@ -33,8 +33,15 @@ using BackEnd.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\Areas\AdminPanel\Views\_ViewImports.cshtml"
+using BackEnd.Models.Categories;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b2169501ce954cd41012459d9129c5cfb3315215", @"/Areas/AdminPanel/Views/User/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"34ef4389fcfd53f0f922742bac588a83109523e6", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"20f8ccd1c40a31695d1749d731395b4fecb9b95f", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
     public class Areas_AdminPanel_Views_User_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<UserVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Category", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -85,7 +92,7 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n<div class=\"col-lg-12 grid-margin stretch-card\">\r\n    <div class=\"card\">\r\n        <div class=\"card-body\">\r\n            <h4 class=\"card-title\">Categories</h4>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb33152158514", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb33152158740", async() => {
                 WriteLiteral("\r\n                Create\r\n            ");
             }
             );
@@ -216,7 +223,7 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521514781", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521515007", async() => {
                 WriteLiteral("\r\n                                            Enable\r\n                                        ");
             }
             );
@@ -260,7 +267,7 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521517778", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521518004", async() => {
                 WriteLiteral("\r\n                                            Disable\r\n                                        ");
             }
             );
@@ -310,7 +317,7 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521520964", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521521190", async() => {
                 WriteLiteral("\r\n                                    Reset Password\r\n                                ");
             }
             );
@@ -344,7 +351,7 @@ using BackEnd.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521523596", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521523822", async() => {
                 WriteLiteral("\r\n                                    Detail\r\n                                ");
             }
             );
@@ -378,7 +385,7 @@ using BackEnd.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521526213", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521526439", async() => {
                 WriteLiteral("\r\n                                    Update\r\n                                ");
             }
             );
@@ -421,7 +428,7 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521529173", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2169501ce954cd41012459d9129c5cfb331521529399", async() => {
                 WriteLiteral("\r\n                                        Change Role\r\n                                    ");
             }
             );

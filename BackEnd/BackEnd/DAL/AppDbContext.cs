@@ -37,6 +37,8 @@ namespace BackEnd.DAL
         public DbSet<TagBlog> TagBlogs { get; set; }
         public DbSet<TagEvent> TagEvents { get; set; }
         public DbSet<TeacherDetail> TeacherDetail { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<SubscribedEmail> SubscribedEmails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

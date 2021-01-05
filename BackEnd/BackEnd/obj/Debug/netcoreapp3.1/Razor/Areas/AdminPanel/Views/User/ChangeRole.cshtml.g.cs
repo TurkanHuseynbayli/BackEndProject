@@ -33,8 +33,15 @@ using BackEnd.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\Areas\AdminPanel\Views\_ViewImports.cshtml"
+using BackEnd.Models.Categories;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f3058bb859df4a7771438102069abc20aa4a2246", @"/Areas/AdminPanel/Views/User/ChangeRole.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"34ef4389fcfd53f0f922742bac588a83109523e6", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"20f8ccd1c40a31695d1749d731395b4fecb9b95f", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
     public class Areas_AdminPanel_Views_User_ChangeRole : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<UserVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -99,7 +106,7 @@ using BackEnd.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("</h5>\r\n        </div>\r\n    </div>\r\n</div>\r\n<h3 class=\"text-danger\">Are you sure</h3>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3058bb859df4a7771438102069abc20aa4a22466056", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3058bb859df4a7771438102069abc20aa4a22466282", async() => {
                 WriteLiteral("\r\n");
 #nullable restore
 #line 17 "C:\Users\admin\Desktop\code academiya\BackEndProject\BackEnd\BackEnd\Areas\AdminPanel\Views\User\ChangeRole.cshtml"
@@ -184,7 +191,7 @@ WriteAttributeValue("", 756, role, 756, 5, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3058bb859df4a7771438102069abc20aa4a224610079", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3058bb859df4a7771438102069abc20aa4a224610305", async() => {
                 WriteLiteral("Go Back");
             }
             );

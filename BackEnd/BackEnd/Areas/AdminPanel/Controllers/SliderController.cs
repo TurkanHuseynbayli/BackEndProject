@@ -125,7 +125,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         #region Slider Update
         public async Task<IActionResult> Update(int? id)
         {
-           
+
             if (id == null) return NotFound();
             Slider slider = _context.Sliders.FirstOrDefault(c => c.Id == id);
             if (slider == null) return NotFound();
@@ -153,8 +153,10 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("Photos", "Artiq bu size  movcud deyil");
                 return View(sliderD);
             }
+
+
             string folder = Path.Combine("img", "slider");
-            
+
             string fileName = await slider.Photo.SaveImageAsync(_env.WebRootPath, folder);
             if (fileName == null)
             {
@@ -192,6 +194,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
 
         }
+
+
         #endregion Slider Update
 
         #region Slider Delete

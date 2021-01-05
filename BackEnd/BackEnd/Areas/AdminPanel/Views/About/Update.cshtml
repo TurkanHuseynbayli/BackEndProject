@@ -8,7 +8,7 @@
         <div class="col-md-12 ">
             <form method="post" enctype="multipart/form-data">
                 <div class="col-md-8 offset-md-2 mb-3">
-                    <img src="~/img/about/@Model.Image"   />
+                    <img src="~/img/about/@Model.Image" />
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-8 offset-md-2">
@@ -56,7 +56,10 @@
         });
 </script>
 
+@section Scripts{
+    <partial name="_Validation" />
 
+}
 
 
 

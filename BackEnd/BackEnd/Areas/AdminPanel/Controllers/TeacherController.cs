@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using BackEnd.DAL;
 using BackEnd.Extensions;
@@ -11,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace BackEnd.Areas.AdminPanel.Controllers
 {
@@ -20,10 +23,12 @@ namespace BackEnd.Areas.AdminPanel.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public TeacherController(AppDbContext context, IWebHostEnvironment env)
+        private readonly IConfiguration _config;
+        public TeacherController(AppDbContext context, IWebHostEnvironment env, IConfiguration config)
         {
             _context = context;
             _env = env;
+            _config = config;
         }
         public IActionResult Index()
         {
@@ -117,7 +122,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             await _context.AddAsync(newTeacher);
             await _context.SaveChangesAsync();
 
-
+           
             newTeachersDetail.About = teachers.TeacherDetail.About;
             newTeachersDetail.Degree = teachers.TeacherDetail.Degree;
             newTeachersDetail.Experience = teachers.TeacherDetail.Experience;
@@ -263,6 +268,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
         }
         #endregion
+
+       
     }
 }
 

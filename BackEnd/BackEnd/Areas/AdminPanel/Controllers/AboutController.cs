@@ -39,8 +39,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         public async Task<IActionResult> Update(int? id, About about)
         {
             About aboutOld = _context.Abouts.FirstOrDefault(a => a.Id == id);
-            if (id == null) return RedirectToAction("ErrorPage", "Home");
-            if (about == null) return RedirectToAction("ErrorPage", "Home");
+            if (id == null) return NotFound();
+            if (about == null) return NotFound();
 
             if (about.Photo != null)
             {

@@ -41,8 +41,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         public async Task<IActionResult> Update(int? id, Testimonial testimonial)
         {
             Testimonial testimonialOld = _context.Testimonials.FirstOrDefault(a => a.Id == id);
-            if (id == null) return RedirectToAction("ErrorPage", "Home");
-            if (testimonial == null) return RedirectToAction("ErrorPage", "Home");
+            if (id == null) return NotFound();
+            if (testimonial == null) return NotFound();
 
             if (testimonial.Photo != null)
             {
