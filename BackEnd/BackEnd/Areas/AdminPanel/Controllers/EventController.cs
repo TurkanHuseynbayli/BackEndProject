@@ -75,7 +75,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             string fileName = await events.Photo.SaveImageAsync(_env.WebRootPath, folder);
             if (fileName == null)
             {
-                return RedirectToAction("ErrorPage", "Home"); ;
+                return NotFound();
             }
             newEvent.Image = fileName;
 
@@ -104,11 +104,13 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             await _context.Events.AddAsync(newEvent);
             await _context.SaveChangesAsync();
 
-            List<SubscribedEmail> emails = _context.SubscribedEmails.Where(e => e.HasDeleted == false).ToList();
-            foreach (SubscribedEmail email in emails)
-            {
-                SendEmail(email.Email, "Yeni bir teacher yaradildi.", "<h1>Yeni bir teacher yaradildi</h1>");
-            }
+            //SEND EMAIL 
+
+            //List<SubscribedEmail> emails = _context.SubscribedEmails.Where(e => e.HasDeleted == false).ToList();
+            //foreach (SubscribedEmail email in emails)
+            //{
+            //    SendEmail(email.Email, "Yeni bir event yaradildi.", "<h1>Yeni bir event yaradildi</h1>");
+            //}
 
 
             newCourseDetail.Description = events.EventDetail.Description;
@@ -152,7 +154,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             {
                 if (isExist.Title != events.Title)
                 {
-                    ModelState.AddModelError("Title", "This name already has. Please write another name");
+                    ModelState.AddModelError("Title", "This name already has.");
                     return View(eventOld);
                 }
             }
@@ -170,7 +172,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 string fileName = await events.Photo.SaveImageAsync(_env.WebRootPath, folder);
                 if (fileName == null)
                 {
-                    return RedirectToAction("ErrorPage", "Home");
+                    return NotFound();
                 }
 
                 Helper.DeleteImage(_env.WebRootPath, folder, eventOld.Image);
@@ -183,8 +185,8 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             eventOld.EventDetail.Description = events.EventDetail.Description;
             eventOld.Date = events.Date;
             eventOld.Place = events.Place;
+           
 
-         
 
             await _context.SaveChangesAsync();
 
@@ -224,31 +226,33 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
         //DELETE END
 
-        public void SendEmail(string email, string subject, string htmlMessage)
-        {
-            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential()
-                {
-                    UserName = "turkanhuseyinbeyli@gmail.com",
-                    Password = "eti228"
-                }
-            };
-            MailAddress fromEmail = new MailAddress("turkanhuseyinbeyli@gmail.com", "Turkan Huseynbayli");
-            MailAddress toEmail = new MailAddress(email, "Turkan Huseynbayli");
-            MailMessage message = new MailMessage()
-            {
-                From = fromEmail,
-                Subject = subject,
-                Body = htmlMessage
-            };
-            message.To.Add(toEmail);
-            client.Send(message);
-        }
+        //SEND EMAIL 
+
+        //public void SendEmail(string email, string subject, string htmlMessage)
+        //{
+        //    System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
+        //    {
+        //        Host = "smtp.gmail.com",
+        //        Port = 587,
+        //        EnableSsl = true,
+        //        DeliveryMethod = SmtpDeliveryMethod.Network,
+        //        UseDefaultCredentials = false,
+        //        Credentials = new NetworkCredential()
+        //        {
+        //            UserName = "turkanhuseyinbeyli@gmail.com",
+        //            Password = "eti228"
+        //        }
+        //    };
+        //    MailAddress fromEmail = new MailAddress("turkanhuseyinbeyli@gmail.com", "Turkan Huseynbayli");
+        //    MailAddress toEmail = new MailAddress(email, "Turkan Huseynbayli");
+        //    MailMessage message = new MailMessage()
+        //    {
+        //        From = fromEmail,
+        //        Subject = subject,
+        //        Body = htmlMessage
+        //    };
+        //    message.To.Add(toEmail);
+        //    client.Send(message);
+        //}
     }
 }

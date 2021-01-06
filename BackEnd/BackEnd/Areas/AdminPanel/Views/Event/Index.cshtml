@@ -19,11 +19,17 @@
                             <th>
                                 Name
                             </th>
-                            <th>
-                                Date
-                            </th>
+
+
                             <th>
                                 Speakers
+                            </th>
+
+                            <th>
+                                Tags
+                            </th>
+                            <th>
+                                Date
                             </th>
 
                             <th>
@@ -42,6 +48,13 @@
                                             @foreach (Speaker speaker in events.EventDetail.Speaker)
                                             {
                                                 <li>@speaker.Name</li>
+                                            }
+                                        </ol>
+                                    <td>
+                                        <ol>
+                                            @foreach (TagEvent tag in events.TagsEvents)
+                                            {
+                                                <a asp-action="Index" class="mr-10 mb-10">@tag.Tag.Name</a>
                                             }
                                         </ol>
                                     </td>

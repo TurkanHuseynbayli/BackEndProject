@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group col-md-4 offset-md-4">
                         <label asp-for="@Model.Name">Name</label>
-                        <input required asp-for="@Model.Name" class="form-control" placeholder="Author">
+                        <input required asp-for="@Model.Name" class="form-control" placeholder="Name">
                         <span class="text-danger" asp-validation-for="@Model.Name"></span>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-success">Create</button>
-                    <a asp-action="Index" class="btn btn-info">Close</a>
+                    <a asp-action="Index" class="btn btn-dark">GO BACK</a>
                 </div>
             </form>
         </div>
