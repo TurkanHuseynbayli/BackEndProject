@@ -106,11 +106,11 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
             //SEND EMAIL 
 
-            //List<SubscribedEmail> emails = _context.SubscribedEmails.Where(e => e.HasDeleted == false).ToList();
-            //foreach (SubscribedEmail email in emails)
-            //{
-            //    SendEmail(email.Email, "Yeni bir event yaradildi.", "<h1>Yeni bir event yaradildi</h1>");
-            //}
+            List<SubscribedEmail> emails = _context.SubscribedEmails.Where(e => e.HasDeleted == false).ToList();
+            foreach (SubscribedEmail email in emails)
+            {
+                SendEmail(email.Email, "Yeni bir event yaradildi.", "<h1>Yeni bir event yaradildi</h1>");
+            }
 
 
             newCourseDetail.Description = events.EventDetail.Description;
@@ -228,31 +228,31 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
         //SEND EMAIL 
 
-        //public void SendEmail(string email, string subject, string htmlMessage)
-        //{
-        //    System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
-        //    {
-        //        Host = "smtp.gmail.com",
-        //        Port = 587,
-        //        EnableSsl = true,
-        //        DeliveryMethod = SmtpDeliveryMethod.Network,
-        //        UseDefaultCredentials = false,
-        //        Credentials = new NetworkCredential()
-        //        {
-        //            UserName = "turkanhuseyinbeyli@gmail.com",
-        //            Password = "eti228"
-        //        }
-        //    };
-        //    MailAddress fromEmail = new MailAddress("turkanhuseyinbeyli@gmail.com", "Turkan Huseynbayli");
-        //    MailAddress toEmail = new MailAddress(email, "Turkan Huseynbayli");
-        //    MailMessage message = new MailMessage()
-        //    {
-        //        From = fromEmail,
-        //        Subject = subject,
-        //        Body = htmlMessage
-        //    };
-        //    message.To.Add(toEmail);
-        //    client.Send(message);
-        //}
+        public void SendEmail(string email, string subject, string htmlMessage)
+        {
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential()
+                {
+                    UserName = "turkanhuseyinbeyli@gmail.com",
+                    Password = "eti228"
+                }
+            };
+            MailAddress fromEmail = new MailAddress("turkanhuseyinbeyli@gmail.com", "Turkan Huseynbayli");
+            MailAddress toEmail = new MailAddress(email, "Turkan Huseynbayli");
+            MailMessage message = new MailMessage()
+            {
+                From = fromEmail,
+                Subject = subject,
+                Body = htmlMessage
+            };
+            message.To.Add(toEmail);
+            client.Send(message);
+        }
     }
 }
